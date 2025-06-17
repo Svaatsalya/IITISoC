@@ -1,2 +1,0 @@
-# IITISoC
-IITISoC Project
