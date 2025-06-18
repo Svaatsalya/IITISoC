@@ -1,6 +1,8 @@
 import React from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import About from "./components/About";
+import ImageSlider from "./components/Carousel";
 
 export default function App() {
   return (
@@ -10,6 +12,8 @@ export default function App() {
       <div className="h-0 w-[40rem] absolute top-[20%] right-[-5%] shadow-[0_0_900px_20px_#b456ec] -rotate-[-30deg] -z-10"></div>
       <Header />
       <Hero/>
+      <About/>
+      <ImageSlider/>
     </main>
   )
 }
