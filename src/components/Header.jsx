@@ -87,9 +87,10 @@ const Header = () => {
         <a href="#" className="hover:text-purple-300 transition">FEATURES</a>
         <a href="#" className="hover:text-purple-300 transition">TEMPLATES</a>
       </nav>
-
-      <button className="hidden md:block bg-purple-600 text-white px-6 py-2 rounded-full hover:bg-purple-700 transition">SIGN IN</button>
-
+      <div className='flex items-center gap-5'>
+      <button className="hidden md:block bg-purple-600 text-white px-6 py-2 rounded-full hover:bg-purple-700 transition">SIGN UP</button>
+      <button className="hidden md:block bg-purple-600 text-white px-6 py-2 rounded-full hover:bg-purple-700 transition"> LOG IN</button>
+      </div>
       {/* Toggle Button */}
       <button onClick={toggleMenu} className="md:hidden text-3xl text-white z-[999]">
         <i className={`bx ${isMenuOpen ? 'bx-x' : 'bx-menu'} transition-all duration-300`}></i>
@@ -121,9 +122,15 @@ const Header = () => {
                 {item}
               </a>
             ))}
-            <button className="mt-4 bg-purple-600 hover:bg-purple-700 py-2 px-6 rounded-full transition-all">
-              SIGN IN
+            <div className='flex items-center gap-4'>
+              <button className="mt-4 bg-purple-600 hover:bg-purple-700 py-2 px-6 rounded-full transition-all">
+              SIGN UP
             </button>
+            <button className="mt-4 bg-purple-600 hover:bg-purple-700 py-2 px-6 rounded-full transition-all">
+              LOG IN
+            </button>
+            </div>
+            
           </nav>
         </div>
       )}

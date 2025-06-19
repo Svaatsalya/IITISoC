@@ -25,58 +25,53 @@ export default function ImageSlider() {
 
   const [sliderRef, slider] = useKeenSlider({
     loop: true,
+    renderMode: 'performance',
     slides: {
-      perView: 1.2,
-      spacing: 24,
+      perView: 1.1,
+      spacing: 16,
     },
     breakpoints: {
       '(min-width: 768px)': {
-        slides: { perView: 2.2, spacing: 28 },
+        slides: { perView: 2, spacing: 20 },
       },
       '(min-width: 1024px)': {
-        slides: { perView: 3.2, spacing: 32 },
+        slides: { perView: 3, spacing: 24 },
       },
     },
     created(sliderInstance) {
       gsap.fromTo(
-        '.keen-slider__slide',
-        { opacity: 0, y: 60 },
+        sectionRef.current,
+        { opacity: 0, y: 40 },
         {
           opacity: 1,
           y: 0,
-          duration: 1.2,
-          ease: 'power3.out',
-          stagger: 0.2,
+          duration: 0.8,
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 80%',
+            start: 'top 90%',
           },
         }
       );
 
-      // Auto-slide every 3s (faster)
       intervalRef.current = setInterval(() => {
-        if (sliderInstance) {
-          sliderInstance.next();
-        }
-      }, 3000);
+        if (sliderInstance) sliderInstance.next();
+      }, 2500);
     },
   });
 
   useEffect(() => {
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
+    return () => intervalRef.current && clearInterval(intervalRef.current);
   }, []);
 
   return (
     <section
       ref={sectionRef}
-      className="w-full bg-gradient-to-b from-[#1a002f] to-[#0c0015] py-28 px-4 sm:px-6 lg:px-10 text-white"
+      className="w-full bg-gradient-to-b from-[#471172] to-[#551b82] py-20 px-4 sm:px-6 lg:px-10 text-white "
     >
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-center text-5xl font-extrabold mb-16 text-white drop-shadow-lg">
-           Portfolio Highlights
+      <div className="max-w-6xl mx-auto ">
+        <h2 className="text-center text-4xl font-bold mb-14 text-white">
+          🌟 Portfolio Highlights
         </h2>
 
         <div className="relative">
@@ -84,41 +79,38 @@ export default function ImageSlider() {
             {images.map((src, index) => (
               <div
                 key={index}
-                className="keen-slider__slide cursor-pointer group rounded-3xl overflow-hidden shadow-md transform transition-transform duration-500 hover:scale-[1.02]"
+                className="keen-slider__slide group rounded-2xl overflow-hidden transition-transform duration-300 hover:scale-[1.01]"
                 onClick={() => setModalImage(src)}
               >
-                <div className="relative w-full h-72 md:h-80 lg:h-[26rem]">
-                  <img
-                    src={src}
-                    alt={`Slide ${index + 1}`}
-                    className="w-full h-full object-cover rounded-3xl"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-purple-900/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </div>
+                <img
+                  src={src}
+                  loading="lazy"
+                  alt={`Slide ${index + 1}`}
+                  className="w-full h-64 md:h-80 lg:h-96 object-cover rounded-2xl"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
             ))}
           </div>
 
-          {/* Arrows */}
-          <div className="absolute inset-y-0 left-2 flex items-center z-10">
+          <div className="absolute inset-y-0 left-3 flex items-center z-10">
             <button
               onClick={() => slider.current?.prev()}
-              className="bg-purple-700/30 hover:bg-purple-700/60 p-3 rounded-full shadow-md"
+              className="bg-purple-700/30 hover:bg-purple-700/60 p-2 rounded-full"
             >
-              <ChevronLeft className="text-purple-200 w-6 h-6" />
+              <ChevronLeft className="text-purple-200 w-5 h-5" />
             </button>
           </div>
-          <div className="absolute inset-y-0 right-2 flex items-center z-10">
+          <div className="absolute inset-y-0 right-3 flex items-center z-10">
             <button
               onClick={() => slider.current?.next()}
-              className="bg-purple-700/30 hover:bg-purple-700/60 p-3 rounded-full shadow-md"
+              className="bg-purple-700/30 hover:bg-purple-700/60 p-2 rounded-full"
             >
-              <ChevronRight className="text-purple-200 w-6 h-6" />
+              <ChevronRight className="text-purple-200 w-5 h-5" />
             </button>
           </div>
         </div>
 
-        {/* Modal View */}
         <Modal
           isOpen={!!modalImage}
           onRequestClose={() => setModalImage(null)}
@@ -135,7 +127,7 @@ export default function ImageSlider() {
             <img
               src={modalImage}
               alt="Modal View"
-              className="w-full max-h-[85vh] object-contain rounded-xl border border-purple-600 shadow-2xl"
+              className="w-full max-h-[85vh] object-contain rounded-xl border border-purple-600 shadow-xl"
             />
           </div>
         </Modal>
