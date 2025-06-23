@@ -83,7 +83,7 @@ const Header = () => {
 
       {/* Desktop Navigation */}
       <nav className="hidden md:flex items-center gap-10 text-white">
-        <a href="#" className="hover:text-purple-300 transition">COMPANY</a>
+        <a href="#" className="hover:text-purple-300 transition">ABOUT US</a>
         <a href="#" className="hover:text-purple-300 transition">FEATURES</a>
         <a href="#" className="hover:text-purple-300 transition">TEMPLATES</a>
       </nav>
@@ -112,7 +112,7 @@ const Header = () => {
           className="fixed top-0 left-0 right-0 bg-[#1a1a1a] p-8 z-50 rounded-b-2xl shadow-2xl text-white"
         >
           <nav className="flex flex-col items-center gap-6 mt-4">
-            {['COMPANY', 'FEATURES', 'TEMPLATES'].map((item, index) => (
+            {['ABOUT US', 'FEATURES', 'TEMPLATES'].map((item, index) => (
               <a
                 key={item}
                 href="#"
