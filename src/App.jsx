@@ -4,6 +4,7 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import ImageSlider from "./components/Carousel";
 import FloatingShapes from "./components/FloatingShapes";
+import AboutUs from "./components/AboutUs"
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
       <About/>
       <ImageSlider/>
       <FloatingShapes/>
+      <AboutUs/>
     </main>
   )
 }
