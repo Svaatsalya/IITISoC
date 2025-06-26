@@ -76,7 +76,7 @@ export default function About() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-black text-white py-16 px-6 mt-24">
+    <section ref={sectionRef} className="About bg-black text-white py-16 px-6 mt-24">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-4xl font-bold mb-6">
           Build Smarter, Not Harder with Instant Portfolio Builder
