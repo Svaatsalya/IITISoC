@@ -1,6 +1,6 @@
 # Project Title
 
-This project is a full-stack web application consisting of a React frontend and an Express.js backend. The backend provides RESTful API endpoints for user authentication and resume management, while the frontend offers a visually appealing user interface with multiple components.
+This project is a full-stack web application for building instant portfolio consisting of a React frontend and an Express.js backend. The backend provides RESTful API endpoints for user authentication and resume management, while the frontend offers a visually appealing user interface with multiple components.
 
 ## Backend
 
