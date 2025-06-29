@@ -1,12 +1,19 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import 'boxicons/css/boxicons.min.css';
 import gsap from 'gsap';
+import Modal from './Modal';
+import AboutUs from './AboutUs';
 
 const Header = () => {
   const menuRef = useRef(null);
   const backdropRef = useRef(null);
   const linksRef = useRef([]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+   const [showAbout, setShowAbout] = useState(false);
+    
+    useEffect(() => {
+    document.body.style.overflow = showAbout ? 'hidden' : 'auto';
+  }, [showAbout]);
 
   const openMenu = () => {
     const menu = menuRef.current;
@@ -83,7 +90,13 @@ const Header = () => {
 
       {/* Desktop Navigation */}
       <nav className="hidden md:flex items-center gap-10 text-white">
-        <a href="#about-us" className="hover:text-purple-300 transition">ABOUT US</a>
+        <a href="#" className="hover:text-purple-300 transition" 
+       onClick={(e) => {
+                e.preventDefault(); // Prevent page jump
+                setShowAbout(true); // Show the modal
+              }}
+                >ABOUT US</a>
+  
         <a href="#" className="hover:text-purple-300 transition">FEATURES</a>
         <a href="#" className="hover:text-purple-300 transition">TEMPLATES</a>
       </nav>
@@ -118,6 +131,13 @@ const Header = () => {
                 href="#"
                 ref={(el) => (linksRef.current[index] = el)}
                 className="text-lg hover:text-purple-300 transition-all"
+                 onClick={(e) => {
+                  e.preventDefault();
+                  if (item === 'ABOUT US') {
+                    setShowAbout(true);
+                    closeMenu();
+                  }
+                }}
               >
                 {item}
               </a>
@@ -134,6 +154,11 @@ const Header = () => {
           </nav>
         </div>
       )}
+
+      <Modal show={showAbout} onClose={() => setShowAbout(false)}>
+        <AboutUs />
+      </Modal>
+      
     </header>
   );
 };

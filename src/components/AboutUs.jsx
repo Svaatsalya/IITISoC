@@ -46,10 +46,10 @@ export default function AboutUs() {
       <div className="max-w-7xl mx-auto text-centre mb-12">
         <h1 className="text-5xl md:text-7xl font-mono uppercase tracking-wide font-black text-center">
           About Us
-        </h1>
-      </div>
+         </h1>
+       </div>
       
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
 
           {students.map((student, index) => (
 
