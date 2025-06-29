@@ -12,6 +12,7 @@
 
 html {
 scroll-behavior: smooth;
+scrollbar-color: black;
 }
 body{
   overflow-x: hidden !important;
