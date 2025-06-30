@@ -97,7 +97,7 @@ const Header = () => {
               }}
                 >ABOUT US</a>
   
-        <a href="#" className="hover:text-purple-300 transition">FEATURES</a>
+        <a href="#features" className="hover:text-purple-300 transition">FEATURES</a>
         <a href="#" className="hover:text-purple-300 transition">TEMPLATES</a>
       </nav>
       <div className='flex items-center gap-5'>
@@ -128,13 +128,20 @@ const Header = () => {
             {['ABOUT US', 'FEATURES', 'TEMPLATES'].map((item, index) => (
               <a
                 key={item}
-                href="#"
+                href={item === 'Features' ? '#features' : '#'} 
                 ref={(el) => (linksRef.current[index] = el)}
                 className="text-lg hover:text-purple-300 transition-all"
                  onClick={(e) => {
                   e.preventDefault();
                   if (item === 'ABOUT US') {
                     setShowAbout(true);
+                    closeMenu();
+                  }
+                  else if ( item === 'FEATURES' ) {
+                    const element = document.getElementById('features');
+                    if (element) {
+                      element.scrollIntoView ({ behavior:'smooth'});
+                    }
                     closeMenu();
                   }
                 }}
