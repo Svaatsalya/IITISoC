@@ -65,73 +65,77 @@ export default function ImageSlider() {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="w-full bg-gradient-to-b from-[#471172] to-[#551b82] py-20 px-4 sm:px-6 lg:px-10 text-white "
-    >
-      <div className="max-w-6xl mx-auto ">
-        <h2 className="text-center text-4xl font-bold mb-14 text-white">
-          🌟 Portfolio Highlights
-        </h2>
+  <section
+    ref={sectionRef}
+    className="w-full overflow-x-hidden bg-gradient-to-b from-[#471172] to-[#551b82] py-20 px-4 sm:px-6 lg:px-10 text-white"
+  >
+    <div className="max-w-6xl mx-auto">
+      <h2 className="text-center text-4xl font-bold mb-14 text-white">
+        🌟 Portfolio Highlights
+      </h2>
 
-        <div className="relative">
-          <div ref={sliderRef} className="keen-slider">
-            {images.map((src, index) => (
-              <div
-                key={index}
-                className="keen-slider__slide group rounded-2xl overflow-hidden transition-transform duration-300 hover:scale-[1.01]"
-                onClick={() => setModalImage(src)}
-              >
-                <img
-                  src={src}
-                  loading="lazy"
-                  alt={`Slide ${index + 1}`}
-                  className="w-full h-64 md:h-80 lg:h-96 object-cover rounded-2xl"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </div>
-            ))}
-          </div>
-
-          <div className="absolute inset-y-0 left-3 flex items-center z-10">
-            <button
-              onClick={() => slider.current?.prev()}
-              className="bg-purple-700/30 hover:bg-purple-700/60 p-2 rounded-full"
+      {/* ✅ Slider container with overflow-x-hidden */}
+      <div className="relative overflow-x-hidden">
+        <div ref={sliderRef} className="keen-slider">
+          {images.map((src, index) => (
+            <div
+              key={index}
+              className="keen-slider__slide group rounded-2xl overflow-hidden transition-transform duration-300 hover:scale-[1.01]"
+              onClick={() => setModalImage(src)}
             >
-              <ChevronLeft className="text-purple-200 w-5 h-5" />
-            </button>
-          </div>
-          <div className="absolute inset-y-0 right-3 flex items-center z-10">
-            <button
-              onClick={() => slider.current?.next()}
-              className="bg-purple-700/30 hover:bg-purple-700/60 p-2 rounded-full"
-            >
-              <ChevronRight className="text-purple-200 w-5 h-5" />
-            </button>
-          </div>
+              <img
+                src={src}
+                loading="lazy"
+                alt={`Slide ${index + 1}`}
+                className="w-full h-64 md:h-80 lg:h-96 object-cover rounded-2xl"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+          ))}
         </div>
 
-        <Modal
-          isOpen={!!modalImage}
-          onRequestClose={() => setModalImage(null)}
-          className="fixed inset-0 flex items-center justify-center p-4 bg-black/90"
-          overlayClassName="fixed inset-0 bg-purple-900/60 backdrop-blur-sm"
-        >
-          <div className="relative max-w-5xl w-full">
-            <button
-              onClick={() => setModalImage(null)}
-              className="absolute top-2 right-2 z-10 p-2 bg-purple-800/40 hover:bg-purple-800/60 rounded-full"
-            >
-              <X className="text-white" />
-            </button>
-            <img
-              src={modalImage}
-              alt="Modal View"
-              className="w-full max-h-[85vh] object-contain rounded-xl border border-purple-600 shadow-xl"
-            />
-          </div>
-        </Modal>
+        {/* Navigation Buttons */}
+        <div className="absolute inset-y-0 left-3 flex items-center z-10">
+          <button
+            onClick={() => slider.current?.prev()}
+            className="bg-purple-700/30 hover:bg-purple-700/60 p-2 rounded-full"
+          >
+            <ChevronLeft className="text-purple-200 w-5 h-5" />
+          </button>
+        </div>
+        <div className="absolute inset-y-0 right-3 flex items-center z-10">
+          <button
+            onClick={() => slider.current?.next()}
+            className="bg-purple-700/30 hover:bg-purple-700/60 p-2 rounded-full"
+          >
+            <ChevronRight className="text-purple-200 w-5 h-5" />
+          </button>
+        </div>
       </div>
-    </section>
-  );
+
+      {/* Modal */}
+      <Modal
+        isOpen={!!modalImage}
+        onRequestClose={() => setModalImage(null)}
+        className="fixed inset-0 flex items-center justify-center p-4 bg-black/90"
+        overlayClassName="fixed inset-0 bg-purple-900/60 backdrop-blur-sm"
+      >
+        <div className="relative max-w-5xl w-full">
+          <button
+            onClick={() => setModalImage(null)}
+            className="absolute top-2 right-2 z-10 p-2 bg-purple-800/40 hover:bg-purple-800/60 rounded-full"
+          >
+            <X className="text-white" />
+          </button>
+          <img
+            src={modalImage}
+            alt="Modal View"
+            className="w-full max-h-[85vh] object-contain rounded-xl border border-purple-600 shadow-xl"
+          />
+        </div>
+      </Modal>
+    </div>
+  </section>
+);
+
 }
