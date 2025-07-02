@@ -9,10 +9,10 @@ import Footer from './components/Footer';
 
 export default function App() {
   return (
-    <main>
+    <main className="md:">
       
       <img className="absolute top-0 right-0 opacity-60 -z-10" src="./gradient.png" alt="Gradient-img" />
-      <div className="h-0 w-[40rem] absolute top-[20%] right-[-5%] shadow-[0_0_900px_20px_#b456ec] -rotate-[-30deg] -z-10"></div>
+      <div className="h-0 w-[40rem] absolute top-[20%] right-[0%] shadow-[0_0_900px_20px_#b456ec] -rotate-[-30deg] -z-10"></div>
       <Header />
       
       <Hero/>
