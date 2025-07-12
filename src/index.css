@@ -2,11 +2,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-<<<<<<< HEAD
-@import 'keen-slider/keen-slider.min.css';
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
-=======
->>>>>>> 08aa42633e37b823faf2667e5941d9dca0e88f86
 
 
 @layer base {
