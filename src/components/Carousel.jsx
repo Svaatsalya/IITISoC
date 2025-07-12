@@ -65,14 +65,14 @@ export default function ImageSlider() {
   }, []);
 
   return (
-  <section
-    ref={sectionRef}
-    className="w-full overflow-x-hidden bg-gradient-to-b from-[#471172] to-[#551b82] py-20 px-4 sm:px-6 lg:px-10 text-white"
-  >
-    <div className="max-w-6xl mx-auto">
-      <h2 className="text-center text-4xl font-bold mb-14 text-white">
-        🌟 Portfolio Highlights
-      </h2>
+    <section
+      ref={sectionRef}
+      className="w-full bg-gradient-to-b from-black via-[#551b82] to-black py-20 px-4 sm:px-6 lg:px-10 text-white "
+    >
+      <div className="max-w-6xl mx-auto ">
+        <h2 className="text-center text-4xl font-bold mb-14 text-white">
+          🌟 Portfolio Highlights
+        </h2>
 
       {/* ✅ Slider container with overflow-x-hidden */}
       <div className="relative overflow-x-hidden">
