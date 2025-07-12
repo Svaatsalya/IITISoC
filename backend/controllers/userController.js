@@ -11,6 +11,7 @@ const generateToken = (userId) => {
 export const registerUser = async (req,res) => {
     try{
         const{name,email,password} = req.body;
+        console.log("Request Body:", req.body); // ✅ Add this log
 
         //To Check if user already exists
         const userExists = await User.findOne({email})
@@ -31,6 +32,9 @@ export const registerUser = async (req,res) => {
             email,
             password:hashedpassword
         })
+
+         console.log("User Created:", user); // ✅ Add this log
+
         res.status(201).json({
             _id:user._id,
             name:user.name,
@@ -41,7 +45,8 @@ export const registerUser = async (req,res) => {
     }
 
     catch (error){
-        res.status(500).json({
+            console.error("Registration Error:", error); // ✅ Add this
+             res.status(500).json({
             message: "Server error",
             error: error.message
         })
