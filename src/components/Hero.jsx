@@ -42,7 +42,7 @@ const Hero = () => {
                 <div className='flex gap-4 mt-12'>
                     <a
                         className='border border-[#2a2a2a] py-2 sm:py-3 px-4 sm:px-5 rounded-full sm:text-lg text-sm font-semibold tracking-wider transition-all duration-300 hover:bg-[#1a1a1a]'
-                        href=''
+                        href='/documentation'
                     >
                         Documentation <i className='bx bx-link-external'></i>
                     </a>

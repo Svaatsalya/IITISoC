@@ -9,8 +9,10 @@
     @apply bg-black text-white relative font-sans h-screen overflow-x-hidden
   }
 }
+body{
+  overflow-x: hidden !important;
+}
 
 html {
 scroll-behavior: smooth;
 }
-

@@ -132,7 +132,7 @@ const Dashboard = () => {
       <img className="absolute top-0 right-0 opacity-60 -z-10" src="./gradient.png" alt="Gradient-img" />
       <div className="h-0 w-[40rem] absolute top-[20%] right-[-5%] shadow-[0_0_900px_20px_#b456ec] -rotate-[-30deg] -z-10"></div>
       <div className={styles.container}>
-        <div className={styles.headerWrapper}>
+        <div className={`${styles.headerWrapper} mb-20`}>
           <div className='flex flex-col gap-2'>
             <h1 className={styles.headerTitle}>My Resumes</h1>
             <p className={styles.headerSubtitle}>{allResumes.length > 0 ? `You have ${allResumes.length} resume${allResumes.length !== 1 ? 's' : ''}` : 'Start building your professional resume'}

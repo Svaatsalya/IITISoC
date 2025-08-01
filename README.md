@@ -85,6 +85,8 @@ The React app is mounted on an HTML element with id `root` and uses global style
 - CORS is configured to allow requests from the frontend origin.
 - Static files are served with appropriate CORS headers.
 
+## License
+This project is licensed under the [MIT License](LICENSE).
 
 
 
