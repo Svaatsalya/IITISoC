@@ -22,7 +22,7 @@ const ModalLS = ( {children , isOpen , onClose , title , hideHeader,showActionBt
 
             )}
             
-            <button type='button' className={styles.closeButton}  onClick={onClose}>Close
+            <button type='button' className={styles.closeButton}  onClick={onClose}>
                 <X size={20} />
             </button>
             <div className={styles.body}>{children}</div>

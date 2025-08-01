@@ -319,7 +319,7 @@ export const ProfileInfoForm = ({ profileData, updateSection }) => {
             onChange={({ target }) => updateSection("designation", target.value)}
           />
 
-          <div className="md:col-span-2">
+          <div className="md:col-span-2 text-black">
             <label className="block text-sm font-bold text-slate-700 mb-3">Summary</label>
             <textarea
               className={profileInfoStyles.textarea}
@@ -353,7 +353,7 @@ export const ProjectDetailForm = ({ projectInfo, updateArrayItem, addArrayItem, 
                 />
               </div>
 
-              <div className="md:col-span-2">
+              <div className="md:col-span-2 text-black">
                 <label className="block text-sm font-bold text-slate-700 mb-3">Description</label>
                 <textarea
                   placeholder="Short description about the project"
@@ -510,7 +510,7 @@ export const WorkExperienceForm = ({ workExperience, updateArrayItem, addArrayIt
               />
             </div>
 
-            <div className="mt-6">
+            <div className="mt-6 text-black">
               <label className="block text-sm font-bold text-slate-700 mb-3">Description</label>
               <textarea
                 placeholder="What did you do in this role?"
