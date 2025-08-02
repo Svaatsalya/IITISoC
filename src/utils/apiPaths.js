@@ -1,6 +1,7 @@
-export const BASE_URL = 'https://portofy-backend.onrender.com/';
-
-//Routes used for frontend 
+//export const BASE_URL = 'https://portofy-backend.onrender.com/';
+export const BASE_URL = import.meta.env.MODE === 'development'
+  ? 'http://localhost:4000'
+  : 'https://portofy-backend.onrender.com';
 
 export const API_PATHS =
 {
