@@ -14,7 +14,10 @@ const app = express();
 const PORT = 4000;
 
 app.use(cors({
-  origin: 'https://portofy.onrender.com/',
+  origin: [
+  "https://portofy.onrender.com",
+  "http://localhost:5173"
+],
   credentials: true
 }));
 
